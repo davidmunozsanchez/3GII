@@ -1,0 +1,44 @@
+David Muñoz Sánchez
+Pablo Fernández Tello
+
+El sistema modular descrito a continuación es un sistema simple de
+razonamiento en paralelo que combina e integra respuestas de cada uno
+de los subsistemas implementados por separado.
+
+El sistema tiene definidos una serie de módulos:
+
+   - Un primer módulo SE1 que exporta un template con el consejo final y
+     otro con la nota media introducida por el usuario.
+     
+   - Un segundo módulo para el SE2 que importa el consejo del SE1,
+     exporta un template con las posibles opciones recomendadas por
+     el SE2 llamado recomendacion_previa y otro con el consejo final
+     de este último.
+     
+   - Por último un tercer módulo (RESPUESTA) que importa los templates
+     de los SE anteriores.
+     
+
+A continuación el sistema procede de la siguiente forma a la hora de
+integrar y combinar las respuestas de cada subsistema en función de una 
+serie de reglas que hemos definido:
+
+Compara el consejo final del SE1 con el del SE2
+
+En el caso de que ambos subsistemas coincidan se combinan ambos 
+consejos y sus explicaciones correspondientes (defrule iguales).
+
+En el caso de que no coincidan, se comprueba si alguna de las 
+recomendaciones previas del SE2 coincide con la del SE1 y si es
+así se vuelven a combinar la recomendacion del SE1 con la que coincide 
+en el SE2 (defrule diferentes1)
+
+Si no coinciden en ningún caso (defrule diferentes2), el sistema procede
+a dar una recomendacion en función de la nota media y de una dificultad
+previamente asignada a cada asignatura, es decir, si la nota media
+introducida es baja, recomendará la asignatura con menor dificultad y si
+por el contrario la nota es alta, aconsejará la asignatura de mayor
+dificultad.
+Esto está contemplado en las reglas compara_notas1, compara_notas2 y 
+compara_notas3.
+

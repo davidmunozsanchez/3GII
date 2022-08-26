@@ -1,0 +1,2 @@
+Por la forma de la entrega que hay que usar en esta práctica que hice en su momento, no he sido capaz de obtener lo que se me pide para la práctica, pero he introducido todos los datos
+junto con sus restricciones y he introducido las diferentes clases tal y como lo tenía en mi ejercicio.
