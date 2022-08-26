@@ -1,0 +1,150 @@
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 1
+
+La dispersión mínima es: 74.5743
+
+La solución para los nodos iniciales: 41 99 es
+
+41 99 8 46 4 24 5 42 33 72 
+
+El algoritmo tardó 1.13189 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 2
+
+La dispersión mínima es: 92.6005
+
+La solución para los nodos iniciales: 43 18 es
+
+43 18 51 5 98 88 46 91 10 41 
+
+El algoritmo tardó 1.11 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 3
+
+La dispersión mínima es: 130.7
+
+La solución para los nodos iniciales: 55 7 es
+
+55 7 72 65 38 44 57 31 93 56 
+
+El algoritmo tardó 1.11174 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 4
+
+La dispersión mínima es: 35.5638
+
+La solución para los nodos iniciales: 96 90 es
+
+96 90 80 6 55 32 39 50 88 25 
+
+El algoritmo tardó 1.12872 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 5
+
+La dispersión mínima es: 51.7371
+
+La solución para los nodos iniciales: 22 5 es
+
+22 5 35 62 80 7 65 29 33 57 
+
+El algoritmo tardó 1.14915 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 1
+
+La dispersión mínima es: 74.5743
+
+La solución para los nodos iniciales: 41 99 es
+
+41 99 8 46 4 24 5 42 33 72 
+
+El algoritmo tardó 1.11866 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 2
+
+La dispersión mínima es: 92.6005
+
+La solución para los nodos iniciales: 43 18 es
+
+43 18 51 5 98 88 46 91 10 41 
+
+El algoritmo tardó 1.11283 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 3
+
+La dispersión mínima es: 130.7
+
+La solución para los nodos iniciales: 55 7 es
+
+55 7 72 65 38 44 57 31 93 56 
+
+El algoritmo tardó 0.763107 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 4
+
+La dispersión mínima es: 35.5638
+
+La solución para los nodos iniciales: 96 90 es
+
+96 90 80 6 55 32 39 50 88 25 
+
+El algoritmo tardó 1.14571 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 5
+
+La dispersión mínima es: 51.7371
+
+La solución para los nodos iniciales: 22 5 es
+
+22 5 35 62 80 7 65 29 33 57 
+
+El algoritmo tardó 1.11319 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 1
+
+La dispersión mínima es: 74.5743
+
+La solución para los nodos iniciales: 41 99 es
+
+41 99 8 46 4 24 5 42 33 72 
+
+El algoritmo tardó 1.11808 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 2
+
+La dispersión mínima es: 92.6005
+
+La solución para los nodos iniciales: 43 18 es
+
+43 18 51 5 98 88 46 91 10 41 
+
+El algoritmo tardó 1.12288 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 3
+
+La dispersión mínima es: 130.7
+
+La solución para los nodos iniciales: 55 7 es
+
+55 7 72 65 38 44 57 31 93 56 
+
+El algoritmo tardó 1.10597 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 4
+
+La dispersión mínima es: 35.5638
+
+La solución para los nodos iniciales: 96 90 es
+
+96 90 80 6 55 32 39 50 88 25 
+
+El algoritmo tardó 1.11447 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
+Problema: datos_MDD/GKD-b_23_n100_m10.txt con semilla 5
+
+La dispersión mínima es: 51.7371
+
+La solución para los nodos iniciales: 22 5 es
+
+22 5 35 62 80 7 65 29 33 57 
+
+El algoritmo tardó 1.12679 milisegundos en ejecutarse.
+FIN DEL PROGRAMA
