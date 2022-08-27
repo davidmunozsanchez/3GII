@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+333
+Persona 1
+	Email: abc01@gmail.com
+	DNI: 07256819C
+	TFNO: 654390564
+Persona 2
+	Email: b@yahoo.com
+	DNI: 76245899A
+	TFNO: 654777890
+Persona 3
+	Email: c@ugr.es
+	DNI: 67890000L
+	TFNO: 678900000
