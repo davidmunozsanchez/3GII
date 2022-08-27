@@ -1,0 +1,8 @@
+ACTIVIDAD 1:
+
+Si quitamos unlock, el programa nunca llega ha terminar, puesto que cuando la siguiente hebra acceda 2:a incremento no podrá obtener el cerrojo ya que nunca se ha llamado a unlock.
+
+
+ACTIVIDAD 2:
+
+
