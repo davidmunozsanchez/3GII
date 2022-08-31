@@ -1,0 +1,57 @@
+Vamos a permitir el acceso sin contraseña de ssh. Podemos llegar a tener contraseñas muy largas y hay que ser conscientes de que cualquiera puede llevar su móvil grabando y que vean que contraseña hemos puesto. Vamos a utilizar un cifrado asimétrico teniendo una clave privada que tendrá nuestro cliente y usaremos una llave pública que copiaremos en nuestro servidor. Hay que generar ese par de archivos.
+1. ssh-keygen
+2. Nos pregunta cosas, primera por defecto y no añadimos contraseña aunque puede ser interesante por motivos de seguridad.
+3. ls -la .ssh/ (tenemos la llave privada y la pública (pub)).
+
+Vamos a copiar nuestra llave pública al servidor y nuestra privada la copiamos a Ubuntu.
+4. ssh-copy-id 192.168.56.105 -p 22022
+
+Aspecto clave, nos tenemos que autenticar con el password, pero lo podemos desactivar después. Si iniciamos sesión no tenemos que teclear contraseña. Para desactivar el acceso con contraseña editamos el archivo /etc/ssh/sshd_config. PasswordAutentication no.
+
+#Ponemos que si requiera contraseña y podemos copiar nuestras llaves privadas.
+
+
+Queremos dejar a unos únicos usuarios que puedan acceder. Lo hacemos en el archivo de configuracion en allowusers.
+sudo adduser davi
+sudo passwd davi
+
+Según el vídeo sin en el servidor no creamos la cuenta no funciona.
+
+Vamos a hacer que solo davi pueda hacerlo. Ponemos nosotros AllowUser davims, reiniciamos servicios y se supone que solo puedo acceder con dav
+En el servidor que queramos ponemos AllowUsers davidms y solo podremos entrar desde centos con davidms y no davi.
+
+
+
+Vamos con sshfs. Montaremos una ubicación remota y el acceso será a través de ssh. Instalamos sshfs en nuestra máquina.
+1. sudo mkdir ./ubuntuserver/
+2. sshfs davidms@192.168.56.105:/home/davidms ./ubuntuserver/ -p 22022
+3. mount (vemos que se ha montado).
+4. cd ubuntuserver/ (vemos lo que hay en nuestro Ubuntu).
+
+Otra funcionalidad interesente es la de XForwarding. 
+1. ssh davidms@192.168.56.105/24 p 22022 -X (XFoward)
+2. Instalamos gedit.
+3. gedit
+4. El procesamiento se está haciendo en el servidor.
+
+Seguimos con screen y tmax. Nos permiten lanzar un trabajo y dejar esa terminal sin ninguna sesión y poderla retomar cuando queramos.
+Ejemplo práctico:
+1. Nos conectamos a ubuntu.
+2. screen
+3. vi miarchivo
+4. En el lado del servidor ps -A | grep vi
+Tenemos sshd con bash, después screen y screen ha creado un proceso del que cuelgan bash y vi. Si cierro mi terminal el proceso SCREEN sigue ahí. Podemos recuperar esa pantalla si nos logeamos de nuevo en ubuntu y:
+5. screen -r -d
+6. screen -list (puedo tener varios, así me conecto al que quiera).
+7. screen -r nombreenlalista -d
+Se me cierra el screen.
+
+Sobre tmax:
+1. Logeados en ubuntu, llamamos a tmux.
+2. Podemos partir el bash
+3. Igual que screen tiene su attach, y todo.
+
+
+
+
+

@@ -1,0 +1,4 @@
+Deseamos crear también un subsistema que se encargue del control de la maquinaria. La maquinaria corresponde a los encargados del mantenimiento, que deberán ser capaces de añadir una máquina a una de las zonas y eliminarla. Las máquinas están separadas por zonas dentro de la fábrica, y cada máquina puede tener varias funciones, por lo que el subsistema se tiene que encargar de modificar la función de cierta máquina según lo requerido. Ante posibles fallos, accidentes o revisiones, debemos ser capaces de tener al alcance toda la información técnica de la máquina (número de serie, fabricante, zona a la que pertenece, horas de uso y antigüedad). Para ello, el sistema debe ser capaz de devolver la ficha técnica de una máquina pedida. Por último, a la hora de las reparaciones, el subsistema deberá decidir en base a si se trata de un error software o hardware, y trasladar la incidencia al departamento correspondiente.
+
+
+

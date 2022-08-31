@@ -1,0 +1,54 @@
+PRÁCTICA 2 ISE 08/11/2021:
+
+Vídeo 1:
+
+1. apt search ssh | grep server
+2. apt install openssh-server
+3. ps -Af | grep sshd
+
+Hacemos una prueba para invocar al cliente y conectarnos a nuestro servidor:
+1. ssh localhost (nos enseña un código y como contraseña pues practicas,ise (a).
+2. logout
+
+Ahora vemos que ha ocurrido:
+1. ls -la
+2. cd .ssh/
+3. Hacemos cat al único archivo que hay y vemos como guarda el código del localhost al que nos conectamos por ssh.
+
+Opciones del servicio ssh.
+
+Vamos a editar nuestro archivo de configuración para deshabilitar el acceso de root:
+1. sudo vi /etc/ssh/sshd_config
+
+Como vemos, la opción permitrootlogin está comentada por defecto.
+
+2. systemctl restart sshd
+
+Para comprobar lo que hemos hecho:
+3. ssh -l root (y nuestra ip de ifconfig). O root@localhost o nuestra ip. Podemos añadir al final -v, y nos hace la conexión paso a paso.
+
+Todo esto para UBUNTU SERVER, veamos ahora para CENTOS.
+
+
+1. En CentOS sshd viene corriendo por defecto. Lo podemos ver con systemctl status sshd (ssh no lo encontraría). En Ubuntu valdría tanto ssh como sshd, en CentOS no, así que usamos sshd.
+
+Desde nuestra terminal podemos hacer ssh davidms@192.168.56.110 (la ip que asignamos al crear la red localhost). Otra diferencia con Ubuntu es que incluso podemos acceder por defecto como root con ssh.
+
+2. Desde nuestra terminal accedemos con vi /etc/ssh/sshd_config. Comentamos la línea donde dice permitrootlogin (o simplemente cambiamos de yes a no). REINICIAMOS EL SERVICIO. SYSTEMCTL RESTART SSHD. Ya no nos deja entrar como root.
+
+Vamos a cambiar el número de puerto para que no sea trivial conectarse a él. Usamos string editor sudo sed s/'Port 22'/'Port 22022'/ -i(para modo inline) /etc/ssh/ssh_config. Reiniciamos servicio sshd. Pero aún así si indicamos desde nuestra terminal ssh davidms@192.168.56.110 -p 22022 no nos deja. En el archivo, la línea port está comentada. Reiniciamos y tenemos un problema.
+
+3. Si hacemos journalctl -xe, nos indica que hay un error al intenetar enlazar a ssh el puerto que hemos puesto. En el archvio de configuración sshd_config, se nos indica que hay que hacer semanage port -a -t ssh_port_t -p tcp #PORTNUMBER, para que tenga efecto este cambio. Puede ser que dnf no esté instalado. Hacemos dnf provides semanage. dnf install policycoreutils....
+
+4. Con semanage port -l vemos todos los tipos de puertos y si hacemos grep ssh vemos el específico para ssh. Desde la terminal no me deja al 22022.
+
+5. Firewall Cent (firewall-cmd). Ubuntu tiene ufw. Queremos añadir un puerto:
+sudo firewall-cmd -add-port 22022/tcp --permanent (para que al reiniciar siga). Recargo el firewall sudo firewall-cmd  --reload.
+
+Vamos a hacer lo mismo en Ubuntu, donde usaremos ufw. Alteramos primero el archivo de configuración de sshd para añadir el puerto 22022 en vez del 22 y reiniciamos el servicio.
+1. Ubuntu no tiene el firewall activado y CentOS no. Vamos a activar el firewall y añadimos el puerto 22022. Como no está activado, nos deja acceder desde fuera sin problema.
+2. sudo ufw status
+3. sudo ufw enable
+4. sudo ufw allow 22022
+
+

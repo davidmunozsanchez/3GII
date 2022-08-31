@@ -1,0 +1,35 @@
+fail2ban es un servicio, por tanto estará en ejecución. Interactuaremos con systemd y fail2ban.client. Lo que hace es un sondeo de los archivos de log /var/log y analiza para ver las autenticaciones erróneas que se han producido. Si hay uno, pasará a banearlo por un tiempo determinado que se pone en el archivo de configuración que se encuentra en /etc/.
+
+Lo instalamos en CENTOS.
+
+1. dnf search fail2ban. No funciona,
+2. dnf search epel
+3.sudo dnf install epel-release
+4. dnf search fail2ban
+5. dnf install fail2ban
+
+1. systemctl status fail2ban
+Está deshabilitado.
+2. systemctl enable fail2ban
+3. systemctl start fail2ban
+
+Lo configuramos:
+1. cd /etc/fail2ban/
+2. sudo nano jail.conf
+3. sudo cp -a jail.conf jail.local (para no sobreescribir el archivo de configuración).
+Editamos el local:
+Debajo de sshd ponemos enbaled = true
+4. systemctl restart fail2ban.service
+5. sudo fail2ban-client status sshd
+6. Si nos conectamos a nuestro Centos y nos logeamos mal más de 5 veces, al hacer el comando 5 se pueden observar cambios. Ha baneado la ip. No va a funcionar al poner la contraseña correcta. No hemos monificado el puerto en el archivo de configuración. Ya si nos funciona. Vamos comprobando con status.
+
+Lo último es desbanear.
+1. fail2ban-client set sshd unban ip 192.168.56.1. No se actualiza un contador pero la ip baneada aparece a 0. Es un bug.
+2. maxretry
+3. bantime esto en el archivo de configuración
+
+Se puede aplicar a más servicios.
+
+
+
+

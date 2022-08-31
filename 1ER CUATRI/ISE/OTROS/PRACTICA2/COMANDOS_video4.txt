@@ -1,0 +1,79 @@
+¿Qué es la pila LAMP?
+
+Vamos apilando una capa de software sobre otra.
+
+Tenemos un servicio en el puerto 80 que está escuchando peticiones. Una vez que recibe una petición devuelve un documento HTML. Cuando lo recibe el cliente, el navegador web nos muestra en pantalla el resultado de leer este documento.
+
+LAMP:
+
+A: Apache
+M: MariaDB, MySQL
+P: Python, PHP, Perl
+
+Tenemos Wordpress también por ejemplo.
+
+En nuestra máquina CentOS isntalamos Apache.
+1. dnf search apache
+2. sudo dnf install httpd
+3. systemctl status httpd
+4. sudo systemctl enable httpd
+5. sudo systemctl start httpd
+
+Ya estaría en ejecución. Comprobamos que funciona.
+6. curl lcoalhost
+
+Si nos puestra un archivo html http está configurado.
+
+1. dnf search php
+2. sudo dnf install php
+3. php -a (interactive shell si funciona el intérprete).
+
+
+1. dnf search mariadb
+2. sudo dnf install mariadb
+3. systemctl status mariadb
+Tenemos un error
+4. sudo dnf install mariadb-server
+5. systemctl status mariadb
+6. sudo sustemctl enable mariadb
+7. sudo systemctl start mariadb
+
+1. mysql
+2. mysql -u root -p
+
+Tenemos acceso
+3. Bye
+
+1. mysql_secure_instalation
+2. Ponemos practicas,ise
+3. quitamos anonimo y root
+4. mysql-u root
+
+
+Conexión con Apache:
+1. En nuestro terminal hacemos curl 192.168.56.110
+No funciona
+En CentOS:
+1. sudo firewall-cmd --add-port=80/tcp --permanent
+2. sudo firewall-cmd --reload
+3. el curl ya funciona
+
+Podemos integrar una script PHP que se conecte a la base de datos:
+1. Me conecto a CentOS desde mi terminal.
+2. less /etc/httpd/conf/httpd.conf
+3. Vemos que tenemos que ubicar nuestro script en cd /var/www/html/
+4. sudo vi index.php
+5. Hay que poner root, la contraseña que pusimos a mariadb.
+6. mysql -u root -p
+7. CREATE DATABASE mi_bd
+
+Nos vamos a un navegadory ponermos index.php nos lo muestra como un documento de texto, viendo la contraseña. Apache no está interpretando el PHP. Modificamos /etc/httpd/conf/httpd.conf
+Buscamos DIrecrory index y añadimos *.php
+1. systemctl restart httpd
+2. En index tenemos http error 500
+3. En CENTOS sudo dnf install php-mysqlnd
+4. Ahora el script va en CentOS pero desde el navegador hay un problema de permisos
+5. getsebool -a | grep httpd
+6. sudo setsebool -P httpd_can_network_connect_db=on
+
+
